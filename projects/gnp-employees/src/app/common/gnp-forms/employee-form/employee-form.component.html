@@ -1,0 +1,38 @@
+<form [formGroup]="this.employeeForm">
+
+  <!--nombre-->
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre</mat-label>
+    <input
+      matInput
+      [placeholder]="'Nombre'"
+      [formControlName]="'nombre'"
+    >
+    <!--<mat-error *ngIf="this.employeeForm.get('nombre').hasError('required')"><strong> * Requerido </strong></mat-error>-->
+  </mat-form-field>
+
+  <!--apellido-->
+  <mat-form-field appearance="fill">
+    <mat-label>Apellido</mat-label>
+    <input
+      matInput
+      [placeholder]="'Apellido'"
+      [formControlName]="'apellido'"
+    >
+    <!--<mat-error *ngIf="this.employeeForm?.get('apellido')?.hasError('required')?"><strong> * Requerido </strong></mat-error>-->
+  </mat-form-field>
+
+  <!--departamento-->
+  <mat-form-field appearance="fill">
+    <mat-label>
+      Select
+    </mat-label>
+    <mat-select
+      [formControlName]="'departamento'"
+    >
+      <mat-option [value]="'contabilidad'">Contabilidad</mat-option>
+      <mat-option [value]="'marketing'">Marketing</mat-option>
+      <mat-option [value]="'sistemas'">Sistemas</mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>

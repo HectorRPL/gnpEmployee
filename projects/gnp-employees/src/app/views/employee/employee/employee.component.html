@@ -1,1 +1,4 @@
-<p>employee works!</p>
+<mat-card>
+  <app-employee-form (emitEmployeeModel)="this.getEmployee($event);"></app-employee-form>
+  <app-post-employee [employee]="this.employee"></app-post-employee>
+</mat-card>
