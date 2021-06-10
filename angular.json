@@ -127,6 +127,126 @@
           }
         }
       }
+    },
+    "gnpEmployees": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/gnp-employees",
+      "sourceRoot": "projects/gnp-employees/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/gnpEmployees",
+            "index": "projects/gnp-employees/src/index.html",
+            "main": "projects/gnp-employees/src/main.ts",
+            "polyfills": "projects/gnp-employees/src/polyfills.ts",
+            "tsConfig": "projects/gnp-employees/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/gnp-employees/src/favicon.ico",
+              "projects/gnp-employees/src/assets"
+            ],
+            "styles": [
+              "projects/gnp-employees/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/gnp-employees/src/environments/environment.ts",
+                  "with": "projects/gnp-employees/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "gnpEmployees:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "gnpEmployees:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "gnpEmployees:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/gnp-employees/src/test.ts",
+            "polyfills": "projects/gnp-employees/src/polyfills.ts",
+            "tsConfig": "projects/gnp-employees/tsconfig.spec.json",
+            "karmaConfig": "projects/gnp-employees/karma.conf.js",
+            "assets": [
+              "projects/gnp-employees/src/favicon.ico",
+              "projects/gnp-employees/src/assets"
+            ],
+            "styles": [
+              "projects/gnp-employees/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/gnp-employees/tsconfig.app.json",
+              "projects/gnp-employees/tsconfig.spec.json",
+              "projects/gnp-employees/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/gnp-employees/e2e/protractor.conf.js",
+            "devServerTarget": "gnpEmployees:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "gnpEmployees:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "gnp-app"
