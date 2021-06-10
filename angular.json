@@ -153,7 +153,8 @@
               "projects/gnp-employees/src/assets"
             ],
             "styles": [
-              "projects/gnp-employees/src/styles.css"
+              "projects/gnp-employees/src/styles.css",
+              "projects/gnp-employees/src/theme.scss"
             ],
             "scripts": []
           },
