@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "startGnpEmployees": "ng serve gnpEmployees",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
